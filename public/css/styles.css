@@ -2,6 +2,7 @@ body {
     background-color: #f8f9fa;
     color: #212529;
     transition: background-color 0.3s, color 0.3s;
+    font-size: 0.9em;
 }
 
 body.dark-mode {
@@ -10,24 +11,39 @@ body.dark-mode {
 }
 
 .container {
-    padding: 20px;
-}
-
-.site-box, .card {
-    background-color: #ffffff;
-    border: 1px solid #dee2e6;
-    border-radius: 0.25rem;
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
     padding: 15px;
-    transition: background-color 0.3s, border-color 0.3s;
+    max-width: 90%;
 }
 
-body.dark-mode .site-box, body.dark-mode .card {
-    background-color: #343a40;
-    border-color: #495057;
+.content-section {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin-bottom: 0;
+    transition: background-color 0.3s;
 }
 
-.control-channel-box, .repeater-box, .card-header {
+body.dark-mode .content-section {
+    background-color: transparent;
+}
+
+.form-group {
+    margin-bottom: 0;
+    background-color: transparent;
+    border: none;
+    padding: 5px 0;
+}
+
+body.dark-mode .form-group {
+    background-color: transparent;
+    border: none;
+}
+
+.form-group label {
+    font-weight: bold;
+}
+
+.control-channel-box, .repeater-box {
     background-color: #e9ecef;
     border: 1px solid #ced4da;
     border-radius: 0.25rem;
@@ -36,7 +52,7 @@ body.dark-mode .site-box, body.dark-mode .card {
     transition: background-color 0.3s, border-color 0.3s;
 }
 
-body.dark-mode .control-channel-box, body.dark-mode .repeater-box, body.dark-mode .card-header {
+body.dark-mode .control-channel-box, body.dark-mode .repeater-box {
     background-color: #495057;
     border-color: #6c757d;
 }
@@ -65,16 +81,14 @@ body.dark-mode .voice-channel.keyed {
     border-color: #218838;
 }
 
-h2, h3, h5 {
+h2, h3, h4, h5 {
     margin-bottom: 15px;
-}
-
-.card-body {
-    padding: 0;
+    font-size: 90%;
 }
 
 .navbar {
     border-bottom: 1px solid #dee2e6;
+    padding: 0.5rem 1rem;
     transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
@@ -83,10 +97,7 @@ body.dark-mode .navbar {
     border-color: #495057;
 }
 
-body.dark-mode .navbar-light .navbar-brand {
-    color: #f8f9fa;
-}
-
+body.dark-mode .navbar-light .navbar-brand,
 body.dark-mode .navbar-light .navbar-nav .nav-link {
     color: #f8f9fa;
 }
@@ -104,21 +115,13 @@ body.dark-mode .table td, body.dark-mode .table th {
     color: #f8f9fa;
 }
 
-.modal-content {
-    background-color: #ffffff;
-    color: #212529;
-    transition: background-color 0.3s, color 0.3s;
+.form-control {
+    font-size: 90%;
 }
 
-body.dark-mode .modal-content {
-    background-color: #343a40;
-    color: #f8f9fa;
-}
-
-body.dark-mode .form-control {
-    background-color: #495057;
-    color: #f8f9fa;
-    border: 1px solid #6c757d;
+.btn {
+    font-size: 90%;
+    padding: 0.375rem 0.75rem;
 }
 
 #message-banner {
@@ -128,6 +131,7 @@ body.dark-mode .form-control {
     right: 0;
     z-index: 1000;
     text-align: center;
+    font-size: 90%;
 }
 
 #message-banner.info {
@@ -138,4 +142,49 @@ body.dark-mode .form-control {
 body.dark-mode #message-banner.info {
     background-color: #0c5460;
     color: #d1ecf1;
+}
+
+@media (max-width: 991.98px) {
+    .navbar-brand {
+        font-size: 1rem;
+    }
+    
+    .navbar-toggler {
+        padding: 0.25rem 0.5rem;
+    }
+    
+    .btn {
+        padding: 0.375rem 0.75rem;
+    }
+    
+    .container {
+        padding: 10px;
+    }
+    
+    .form-group {
+        margin-bottom: 0.75rem;
+    }
+    
+    .table td, .table th {
+        padding: 0.5rem;
+    }
+}
+
+#clear-manual-talkgroup {
+    background-color: transparent;
+    border: 1px solid #ced4da;
+}
+
+body.dark-mode #clear-manual-talkgroup {
+    background-color: transparent;
+    border-color: #495057;
+    color: #f8f9fa;
+}
+
+#clear-manual-talkgroup:hover {
+    background-color: #e9ecef;
+}
+
+body.dark-mode #clear-manual-talkgroup:hover {
+    background-color: #495057;
 }

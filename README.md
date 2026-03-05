@@ -1,5 +1,7 @@
 # DVSwitch Mode Changer
 
+NOTE:  All credit goes to firelarmss - I just added the manual entry of talkgroups and fixed a couple menus with AI.   This is a placeholder until my suggestions can be rolled into the original code.
+
 Basic service to switch modes/talkgroups of a dvswitch server. Defualt webserver uses port 3000, you can change it in configs/config.yml. USRP support is also available.
 
 ## Install Process:
@@ -10,7 +12,7 @@ apt update && apt upgrade && apt install git && apt install nodejs
 
 cd /opt
 
-git clone https://github.com/firealarmss/dvswitch_mode_switcher
+git clone https://github.com/hquimby/dvswitch_mode_switcher
 
 cd dvswitch_mode_switcher
 

@@ -5,40 +5,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/styles.css" rel="stylesheet">
-    <title>DVSwitch Mode Switcher</title>
+    <title>DVS Mode Switcher</title>
 </head>
 <body>
 <%- include('partials/header') %>
 <div class="container">
     <div id="message-banner" class="alert info" role="alert" style="display: none;"></div>
-    <h1 class="mt-5">DVSwitch Mode Switcher</h1>
-    <div class="mt-4">
-        <h3>Switch Mode</h3>
-        <form id="mode-form">
-            <div class="form-group">
-                <label for="mode">Mode</label>
-                <select class="form-control" id="mode" onchange="updateTalkgroups()">
-                    <option value="">Select a mode</option>
-                    <% modes.forEach(mode => { %>
-                        <option value="<%= mode.name %>"><%= mode.name %></option>
-                    <% }) %>
-                </select>
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="content-section mt-3">
+               
+                <form id="mode-form">
+                    <div class="form-group">
+                        <label for="mode">Switch Mode</label>
+                        <select class="form-control" id="mode" onchange="updateTalkgroups()">
+                            <option value="">Select a mode</option>
+                            <% modes.forEach(mode => { %>
+                                <option value="<%= mode.name %>"><%= mode.name %></option>
+                            <% }) %>
+                        </select>
+                    </div>
+                </form>
             </div>
-        </form>
-    </div>
-    <div class="mt-4">
-        <h3>Switch Talkgroup</h3>
-        <form id="talkgroup-form">
-            <div class="form-group">
-                <label for="talkgroup">Talkgroup</label>
-                <select class="form-control" id="talkgroup"></select>
+
+            <div class="content-section mt-3">
+                
+                <form id="talkgroup-form">
+                    <div class="form-group">
+                        <label for="talkgroup">Switch Talkgroup</label>
+                        <select class="form-control mb-2" id="talkgroup">
+                            <!-- Dynamically populated talkgroup options -->
+                        </select>
+                        <div class="input-group">
+                            <input 
+                                type="text" 
+                                class="form-control" 
+                                id="manual-talkgroup" 
+                                placeholder="Enter Talkgroup Number or Link" 
+                                aria-label="Manual Talkgroup Entry">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="button" id="clear-manual-talkgroup">
+                                    <span>&times;</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Switch Talkgroup</button>
+                </form>
             </div>
-            <button type="submit" class="btn btn-primary">Switch Talkgroup</button>
-        </form>
+        </div>
     </div>
 </div>
 
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="/js/theme-toggle.js"></script>
 <script src="/js/index.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const manualTalkgroupInput = document.getElementById('manual-talkgroup');
+    const clearButton = document.getElementById('clear-manual-talkgroup');
+
+    clearButton.addEventListener('click', function() {
+        manualTalkgroupInput.value = '';
+        manualTalkgroupInput.focus();
+    });
+});
+</script>
 </body>
 </html>
